@@ -29,9 +29,8 @@ object WeblogChallenge {
   val LocalMode = "local"
 
   def main(args: Array[String]) = {
-    val logPath: String = inputFromArgs(args)
     val context = new SparkContext(new SparkConf().setAppName(AppName).setMaster(LocalMode))
-    sessionize(context, logPath)
+    sessionize(context, inputFromArgs(args))
     context.stop()
   }
 
